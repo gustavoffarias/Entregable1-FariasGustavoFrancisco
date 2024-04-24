@@ -1,23 +1,16 @@
+import{productos, carritoProds} from './varibles.js'
 
-function mostrarProductos(){
-    for(let i=0; i<productos.length; i++){
-        listadoProductos += `\n ${productos[i]}`;
-    };
-
-    let categoriaProductos = prompt("Ingrese el nombre del producto a comprar, tipiando tal cual esta cargado el producto"+listadoProductos);
-}
-
-const agregarAlCarrito = (prod)=>{
-    const arrayAgPr = productos.includes(prod);
-    if(arrayAgPr){
-        productos.push(prod)
+export const agregarAlCarrito = (prod)=>{
+    const arrayAgCr = productos.includes(prod);
+    if(arrayAgCr){
+        carritoProds.push(prod);
         alert("Producto agregado");
     } else {
         alert("El producto no existe");
     }    
 };
 
-const agregarProducto = (prod)=>{
+export const agregarProducto = (prod)=>{
     const arrayAgPr = productos.includes(prod);
     if(arrayAgPr){
         alert("El producto ya existe");
@@ -27,7 +20,7 @@ const agregarProducto = (prod)=>{
     }
 }
 
-const validadorProducto = (prod)=>{
+export const validadorProducto = (prod)=>{
     const transformar = Number(prod);
     const validacionNumero = isNaN(transformar);
     const validacionVacio = prod !== "";
